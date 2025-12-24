@@ -1,0 +1,1773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Flood Relief Fund</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --gray: #5f6368;
+            --light-gray: #e8eaed;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-bar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        #toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .Navbar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .Navbar a {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .Navbar a:hover {
+            color: var(--primary);
+        }
+
+        .Navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .Navbar a:hover::after {
+            width: 100%;
+        }
+
+        .Navbar a.active {
+            color: var(--primary);
+        }
+
+        .Navbar a.active::after {
+            width: 100%;
+        }
+
+        .donate-btn {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(26, 115, 232, 0.3);
+            transition: var(--transition);
+        }
+
+        .donate-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(26, 115, 232, 0.4);
+            color: white;
+        }
+
+        /* Contact Hero */
+        .contact-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .contact-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .contact-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .contact-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        /* Contact Info */
+        .contact-info {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            height: fit-content;
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .contact-info p {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            opacity: 0.9;
+        }
+
+        .contact-info i {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            margin-top: 3px;
+            width: 20px;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background-color: var(--light);
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .form-group {
+            position: relative;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: white;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+
+        .contact-form textarea {
+            min-height: 180px;
+            resize: vertical;
+        }
+
+        .contact-form button {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .contact-form button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+        }
+
+        .contact-form button:active {
+            transform: translateY(-1px);
+        }
+
+        /* Map Section */
+        .map-section {
+            padding: 0 0 100px;
+        }
+
+        .map-container {
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .map-placeholder {
+            background: linear-gradient(45deg, #f0f7ff, #e3f2fd);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+        }
+
+        .map-placeholder i {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .map-placeholder h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background-color: #f0f7ff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(26, 115, 232, 0.05);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 30px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Contact Methods */
+        .contact-methods {
+            padding: 80px 0;
+            background-color: white;
+        }
+
+        .methods-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .method-card {
+            background-color: var(--light);
+            padding: 40px 30px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .method-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .method-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .method-card p {
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .method-link {
+            color: var(--primary);
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .method-link:hover {
+            color: var(--primary-dark);
+            gap: 12px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about h3 span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: #b0b7c3;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4, .footer-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #b0b7c3;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #b0b7c3;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2d3748;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+
+        /* LIVE CHAT STYLES */
+        .chat-container {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .chat-button {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(26, 115, 232, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 100;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 30px rgba(26, 115, 232, 0.5);
+        }
+
+        .chat-button i {
+            font-size: 1.5rem;
+        }
+
+        .chat-button .badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background-color: var(--accent);
+            color: white;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            font-size: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .chat-window {
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            max-width: 90vw;
+            height: 500px;
+            max-height: 70vh;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            display: none;
+            flex-direction: column;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+        }
+
+        .chat-window.active {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 18px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-header h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-header .status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8rem;
+            opacity: 0.9;
+        }
+
+        .status-indicator {
+            width: 8px;
+            height: 8px;
+            background-color: #4caf50;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .chat-close:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #f9f9f9;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 12px 16px;
+            border-radius: 18px;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .message.bot {
+            align-self: flex-start;
+            background-color: white;
+            border: 1px solid var(--light-gray);
+            color: var(--dark);
+            border-bottom-left-radius: 5px;
+        }
+
+        .message.user {
+            align-self: flex-end;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message-time {
+            font-size: 0.7rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-align: right;
+        }
+
+        .chat-input-container {
+            padding: 15px;
+            background-color: white;
+            border-top: 1px solid var(--light-gray);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid var(--light-gray);
+            border-radius: 25px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.1);
+        }
+
+        .chat-send {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .chat-send:hover {
+            transform: scale(1.05);
+        }
+
+        .chat-send:disabled {
+            background: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .quick-replies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            padding: 10px 20px 0;
+            background-color: #f9f9f9;
+        }
+
+        .quick-reply {
+            background-color: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 15px;
+            padding: 8px 12px;
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .quick-reply:hover {
+            background-color: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 12px 16px;
+            background-color: white;
+            border: 1px solid var(--light-gray);
+            border-radius: 18px;
+            width: fit-content;
+            align-self: flex-start;
+            margin-bottom: 5px;
+        }
+
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--gray);
+            border-radius: 50%;
+            animation: typing 1.4s infinite ease-in-out;
+        }
+
+        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
+        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes typing {
+            0%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .methods-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .chat-window {
+                width: 320px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .Navbar {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            #toggle:checked ~ .Navbar {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .methods-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .chat-container {
+                bottom: 20px;
+                right: 20px;
+            }
+            
+            .chat-window {
+                width: calc(100vw - 40px);
+                right: 0;
+                bottom: 70px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-info, .contact-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-bar">
+        <div class="header-container container">
+            <div class="logo">
+                <img src="images/About.png" alt="Flood Relief Logo">
+                <div class="logo-text">Flood<span> Relief Fund</span></div>
+            </div>
+            
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav class="Navbar">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="donate.html">Donate</a>
+                <a href="get-involved.html">Get Involved</a>
+                <a href="team.html">Our Team</a>
+                <a href="contact.html" class="active">Contact</a>
+                <a href="donate.html" class="donate-btn">Donate Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Contact Hero -->
+    <section class="contact-hero" id="hero">
+        <div class="contact-hero-content">
+            <h1>Contact Us</h1>
+            <p>We're here to help and answer any questions you might have. Reach out to us through any of the methods below.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>We'd love to hear from you! Reach out to us through the form or our contact details below.</p>
+            </div>
+            
+            <div class="contact-wrapper">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h3>Our Office</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> Bidco, Thika, Kenya</p>
+                    <p><i class="fas fa-phone"></i> <strong>Phone:</strong> +254 713605672</p>
+                    <p><i class="fas fa-envelope"></i> <strong>Email:</strong> contact@floodrelieffund.org</p>
+                    <p><i class="fas fa-clock"></i> <strong>Hours:</strong> Mon - Fri: 9am - 6pm</p>
+                    <p><i class="fas fa-globe"></i> <strong>Website:</strong> www.floodrelieffund.org</p>
+                    
+                    <div style="margin-top: 30px;">
+                        <h4 style="font-size: 1.2rem; margin-bottom: 15px;">Emergency Contact</h4>
+                        <p><i class="fas fa-exclamation-circle"></i> <strong>24/7 Hotline:</strong> +254 713344846</p>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3 style="font-size: 1.8rem; margin-bottom: 25px; color: var(--dark);">Send us a message</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Full Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Your Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        <p id="formMessage" style="margin-top: 15px; text-align: center; display: none;"></p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Methods -->
+    <section class="contact-methods">
+        <div class="container">
+            <div class="section-title">
+                <h2>Other Ways to Reach Us</h2>
+                <p>Choose the method that works best for you</p>
+            </div>
+            
+            <div class="methods-grid">
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-phone-alt"></i>
+                    </div>
+                    <h3>Call Us</h3>
+                    <p>Speak directly with our team during business hours</p>
+                    <a href="tel:+254713605672" class="method-link">
+                        +254 713 605 672
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Send us an email and we'll respond within 24 hours</p>
+                    <a href="mailto:contact@floodrelieffund.org" class="method-link">
+                        contact@floodrelieffund.org
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+                
+                <div class="method-card">
+                    <div class="method-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Live Chat</h3>
+                    <p>Chat with our support team in real-time</p>
+                    <a href="#" class="method-link" id="startChatCard">
+                        Start Live Chat
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Find Our Office</h2>
+                <p>Visit us at our headquarters in Nairobi</p>
+            </div>
+            
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <h3>Our Location</h3>
+                    <p>Bidco, Thika, Kenya</p>
+                    <a href="https://maps.google.com/?q=Bidco,+Thika,+Kenya" target="_blank" class="btn btn-primary" style="margin-top: 20px; display: inline-block; padding: 12px 25px;">
+                        <i class="fas fa-directions"></i> Get Directions
+                    </a>
+                </div>
+                <!-- In a real implementation, you would embed a Google Map here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find quick answers to common questions</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can I volunteer with United Against Floods?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We welcome volunteers! You can apply through our "Get Involved" page. We have opportunities for field volunteers, administrative support, and skilled professionals. All volunteers undergo a brief orientation and training.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How are donations used?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>90% of all donations go directly to flood relief programs, including emergency supplies, shelter, medical aid, and community rebuilding. 7% covers operational costs, and 3% goes to fundraising efforts. We publish annual financial reports for transparency.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How can my community request assistance?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Communities affected by floods can contact our emergency hotline at +254 711 222 333 or submit a request through our website. Our assessment team will evaluate the situation and coordinate appropriate relief efforts.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Do you offer flood prevention education?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We run community workshops on flood preparedness, early warning systems, and sustainable land use. Contact our education department to schedule a workshop in your community.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-about">
+                    <h3>Flood<span> Relief Fund</span></h3>
+                    <p>Bringing hope and relief to communities affected by floods. Together, we can make a difference.</p>
+                    <a href="donate.html" class="btn btn-primary" style="display: inline-block; padding: 10px 20px; margin-top: 10px;">Donate Now</a>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> contact@floodrelieffund.org</p>
+                    <p><i class="fas fa-phone"></i> +254 713605672</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Bidco, Thika, Kenya</p>
+                </div>
+
+                <!-- Social Media Column -->
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #b0b7c3; font-size: 0.9rem;">Subscribe to our newsletter</p>
+                    <form class="newsletter-form" style="margin-top: 10px;">
+                        <input type="email" placeholder="Your email" style="padding: 10px; border-radius: 4px; border: none; width: 70%; margin-right: 5px;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flood Relief Fund. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Live Chat Container -->
+    <div class="chat-container">
+        <div class="chat-window" id="chatWindow">
+            <div class="chat-header">
+                <h3><i class="fas fa-headset"></i> Flood Relief Support</h3>
+                <div class="status">
+                    <span class="status-indicator"></span>
+                    <span>Online Now</span>
+                </div>
+                <button class="chat-close" id="closeChat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will be inserted here by JavaScript -->
+                <div class="message bot">
+                    <p>Hello! 👋 Welcome to Flood Relief Fund support. How can I help you today?</p>
+                    <div class="message-time">Just now</div>
+                </div>
+                
+                <div class="quick-replies" id="quickReplies">
+                    <div class="quick-reply" data-reply="How can I make a donation?">Make a donation</div>
+                    <div class="quick-reply" data-reply="I need emergency flood assistance">Emergency help</div>
+                    <div class="quick-reply" data-reply="How do I volunteer?">Volunteer</div>
+                    <div class="quick-reply" data-reply="What are your contact details?">Contact info</div>
+                    <div class="quick-reply" data-reply="What programs do you offer?">Programs & services</div>
+                    <div class="quick-reply" data-reply="Where is your office located?">Location</div>
+                </div>
+            </div>
+            
+            <div class="chat-input-container">
+                <input type="text" class="chat-input" id="chatInput" placeholder="Type your message here..." autocomplete="off">
+                <button class="chat-send" id="sendMessage">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="chat-button" id="chatButton">
+            <i class="fas fa-comment-dots"></i>
+            <div class="badge" id="messageBadge" style="display: none;">1</div>
+        </div>
+    </div>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header-bar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other FAQ items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const messageDiv = document.getElementById('formMessage');
+            
+            // Simple client-side validation
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const message = formData.get('message');
+            
+            if (!name || !email || !message) {
+                showMessage('Please fill in all required fields.', 'error');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            showMessage('Sending your message...', 'info');
+            
+            // In a real implementation, you would send this to your server
+            setTimeout(() => {
+                showMessage('Thank you! Your message has been sent successfully. We will respond within 24 hours.', 'success');
+                document.getElementById('contactForm').reset();
+            }, 1500);
+        });
+
+        function showMessage(text, type) {
+            const messageDiv = document.getElementById('formMessage');
+            messageDiv.textContent = text;
+            messageDiv.style.display = 'block';
+            
+            // Set color based on message type
+            if (type === 'error') {
+                messageDiv.style.color = 'var(--accent)';
+            } else if (type === 'success') {
+                messageDiv.style.color = 'var(--secondary)';
+            } else {
+                messageDiv.style.color = 'var(--primary)';
+            }
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                messageDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // Toggle mobile menu
+        document.getElementById('toggle').addEventListener('change', function() {
+            document.body.style.overflow = this.checked ? 'hidden' : 'auto';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.Navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('toggle').checked = false;
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ENHANCED CHATBOT FUNCTIONALITY
+        // ================================
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const closeChat = document.getElementById('closeChat');
+        const sendMessageBtn = document.getElementById('sendMessage');
+        const chatInput = document.getElementById('chatInput');
+        const chatMessages = document.getElementById('chatMessages');
+        const messageBadge = document.getElementById('messageBadge');
+        const startChatCard = document.getElementById('startChatCard');
+        
+        let unreadMessages = 0;
+        
+        // Enhanced Chatbot with better responses
+        const chatbot = {
+            responses: {
+                donate: {
+                    keywords: ["donate", "donation", "money", "fund", "contribute", "give", "support", "help financially", "pay", "financial", "cash", "sponsor", "funding", "bank", "transfer", "mpesa", "mobile money"],
+                    answers: [
+                        "You can donate through: 1) Our website donation page 2) Mobile money (M-Pesa) to 0712345678 3) Bank transfer to Account #123456 4) Visiting our office. All donations are tax-deductible.",
+                        "We accept donations via credit card on our website, mobile money, and bank transfers. 90% of donations go directly to flood relief programs.",
+                        "To donate, visit www.floodrelieffund.org/donate or call +254 713605672 for assistance. We accept one-time and recurring donations."
+                    ]
+                },
+                emergency: {
+                    keywords: ["emergency", "urgent", "help now", "immediate", "flooding", "rescue", "danger", "stranded", "trapped", "sos", "critical", "life-threatening", "stuck", "water", "evacuate"],
+                    answers: [
+                        "🚨 EMERGENCY: Call +254 713344846 NOW for immediate assistance. Provide your location and situation details.",
+                        "For urgent flood emergencies, call our 24/7 hotline: +254 713344846. We dispatch rescue teams immediately.",
+                        "If you're in immediate danger from flooding, call +254 713344846. Move to higher ground if possible and avoid walking through floodwaters."
+                    ]
+                },
+                volunteer: {
+                    keywords: ["volunteer", "help out", "participate", "join", "work with", "assist", "contribute time", "hands on", "skills", "time", "service", "opportunities", "positions", "apply"],
+                    answers: [
+                        "We need volunteers for: Field operations, Medical support, Distribution, Administration, and Community outreach. Apply at www.floodrelieffund.org/volunteer",
+                        "Volunteer opportunities include: Disaster response teams, Fundraising, Education programs, and Technical support. Training is provided.",
+                        "To volunteer, fill out our application form online. We'll contact you within 2 business days to discuss opportunities matching your skills."
+                    ]
+                },
+                info: {
+                    keywords: ["what", "how", "why", "when", "where", "who", "information", "details", "explain", "tell me about", "learn", "understand", "purpose", "mission"],
+                    answers: [
+                        "Flood Relief Fund provides emergency response, medical aid, shelter, and long-term recovery support to flood-affected communities across Kenya.",
+                        "We operate in flood-prone regions, offering rescue services, supplies distribution, and community resilience programs to help prevent future disasters.",
+                        "Our organization focuses on immediate relief and sustainable solutions to help communities recover and prepare for future floods."
+                    ]
+                },
+                contact: {
+                    keywords: ["contact", "reach", "call", "email", "phone", "number", "address", "location", "office", "speak to", "talk to", "get in touch", "reach out"],
+                    answers: [
+                        "Contact us: Phone +254 713605672 | Email contact@floodrelieffund.org | Address: Bidco, Thika Kenya | Hours: Mon-Fri 9am-6pm",
+                        "You can reach us at: Office: +254 713605672 | Emergency: +254 713344846 | Email: contact@floodrelieffund.org",
+                        "Visit our office at Bidco, Thika or call +254 713605672 during business hours. For emergencies, call +254 713344846 24/7."
+                    ]
+                },
+                programs: {
+                    keywords: ["program", "service", "offer", "provide", "assistance", "help", "aid", "support", "initiative", "project", "work", "activities", "operations"],
+                    answers: [
+                        "Our programs include: Emergency rescue, Food/water distribution, Medical services, Temporary shelter, and Community rebuilding.",
+                        "We offer: Disaster response, Recovery assistance, Flood prevention education, and Community resilience training programs.",
+                        "Services: Search & rescue, Emergency supplies distribution, Medical care, Psychological support, and Long-term recovery planning."
+                    ]
+                },
+                hours: {
+                    keywords: ["hours", "open", "close", "time", "available", "when", "business hours", "operating", "weekend", "saturday", "sunday"],
+                    answers: [
+                        "Office hours: Monday-Friday, 9:00 AM to 6:00 PM. Emergency hotline: 24/7 at +254 713344846.",
+                        "Our main office is open Mon-Fri 9am-6pm. Emergency services operate 24 hours daily.",
+                        "Regular business hours: Weekdays 9am-6pm. Emergency response: Available 24/7."
+                    ]
+                },
+                location: {
+                    keywords: ["location", "where", "address", "find", "office", "headquarters", "based", "city", "area", "directions", "map"],
+                    answers: [
+                        "Main office: Bidco, Thika, Kenya. We also have field offices in major flood-prone areas.",
+                        "Headquarters: Bidco Industrial Area, Thika. Field offices in Nairobi, Mombasa, Kisumu, and Eldoret.",
+                        "You can find us at Bidco, Thika. Use Google Maps for directions or call +254 713605672 for guidance."
+                    ]
+                }
+            },
+            
+            greetings: [
+                "Hello! 👋 Welcome to Flood Relief Fund support. How can I assist you today?",
+                "Hi there! I'm here to help with any questions about flood relief efforts.",
+                "Welcome! I'm your Flood Relief Fund assistant. What would you like to know?"
+            ],
+            
+            thanksResponses: [
+                "You're welcome! Is there anything else I can help you with today?",
+                "Happy to help! Don't hesitate to ask if you need more information.",
+                "Glad I could assist! Let me know if you have any other questions."
+            ],
+            
+            fallbacks: [
+                "I understand you're asking about flood relief. Could you provide more specific details so I can help you better?",
+                "I'm here to help with questions about donations, emergencies, volunteering, and flood relief programs. Could you clarify your question?",
+                "That's an important question about flood relief. Let me connect you with the most relevant information from our services."
+            ],
+            
+            // Get intelligent response
+            getResponse: function(userMessage) {
+                const lowerMsg = userMessage.toLowerCase().trim();
+                
+                // Check for greetings
+                if (/(hi|hello|hey|good morning|good afternoon|good evening|greetings)/i.test(userMessage)) {
+                    return this.greetings[Math.floor(Math.random() * this.greetings.length)];
+                }
+                
+                // Check for thanks
+                if (/(thank|thanks|appreciate|grateful|nice|helpful)/i.test(userMessage)) {
+                    return this.thanksResponses[Math.floor(Math.random() * this.thanksResponses.length)];
+                }
+                
+                // Check for goodbye
+                if (/(bye|goodbye|see you|farewell|done|finish|exit|close)/i.test(userMessage)) {
+                    return "Thank you for contacting Flood Relief Fund! Stay safe and don't hesitate to reach out if you need further assistance. Goodbye! 👋";
+                }
+                
+                // Check for "how are you" type questions
+                if (/(how are you|how do you do|what's up)/i.test(userMessage)) {
+                    return "I'm doing well, thank you! Ready to help you with flood relief information. How can I assist you today?";
+                }
+                
+                // Check all response categories
+                for (const category in this.responses) {
+                    for (const keyword of this.responses[category].keywords) {
+                        if (lowerMsg.includes(keyword)) {
+                            const answers = this.responses[category].answers;
+                            return answers[Math.floor(Math.random() * answers.length)];
+                        }
+                    }
+                }
+                
+                // If no match found but it's a question
+                if (lowerMsg.includes("?") || lowerMsg.startsWith("what") || lowerMsg.startsWith("how") || 
+                    lowerMsg.startsWith("why") || lowerMsg.startsWith("when") || lowerMsg.startsWith("where")) {
+                    return "I understand you have a question. Could you be more specific about what aspect of flood relief you'd like to know about?";
+                }
+                
+                // Default fallback
+                return this.fallbacks[Math.floor(Math.random() * this.fallbacks.length)];
+            },
+            
+            // Suggest related questions based on current message
+            getSuggestions: function(userMessage) {
+                const lowerMsg = userMessage.toLowerCase();
+                const suggestions = [];
+                
+                // Donation-related suggestions
+                if (lowerMsg.includes("donat") || lowerMsg.includes("money") || lowerMsg.includes("fund")) {
+                    suggestions.push("What percentage goes to actual relief?");
+                    suggestions.push("Can I donate goods instead of money?");
+                    suggestions.push("Is my donation tax-deductible?");
+                    suggestions.push("How are donations used?");
+                } 
+                // Volunteer-related suggestions
+                else if (lowerMsg.includes("volunteer") || lowerMsg.includes("help") || lowerMsg.includes("join")) {
+                    suggestions.push("Do I need special training?");
+                    suggestions.push("What's the minimum time commitment?");
+                    suggestions.push("Are there age restrictions?");
+                    suggestions.push("What skills are needed?");
+                } 
+                // Emergency-related suggestions
+                else if (lowerMsg.includes("emergency") || lowerMsg.includes("urgent") || lowerMsg.includes("rescue")) {
+                    suggestions.push("What should I do while waiting for help?");
+                    suggestions.push("What information should I provide?");
+                    suggestions.push("Do you provide medical assistance?");
+                    suggestions.push("How fast is response time?");
+                }
+                // General or no specific category
+                else {
+                    suggestions.push("How can I donate?");
+                    suggestions.push("I need emergency assistance");
+                    suggestions.push("Volunteer opportunities");
+                    suggestions.push("Contact information");
+                    suggestions.push("What programs do you offer?");
+                }
+                
+                return suggestions.slice(0, 4); // Return max 4 suggestions
+            }
+        };
+        
+        // Function to show suggestion buttons
+        function showSuggestions(suggestions) {
+            // Remove existing dynamic suggestions
+            const existing = document.getElementById('dynamicSuggestions');
+            if (existing) existing.remove();
+            
+            if (suggestions.length > 0) {
+                const suggestionsDiv = document.createElement('div');
+                suggestionsDiv.className = 'quick-replies';
+                suggestionsDiv.id = 'dynamicSuggestions';
+                
+                suggestions.forEach(suggestion => {
+                    const button = document.createElement('div');
+                    button.className = 'quick-reply';
+                    button.textContent = suggestion;
+                    button.addEventListener('click', function() {
+                        chatInput.value = suggestion;
+                        sendMessage();
+                    });
+                    suggestionsDiv.appendChild(button);
+                });
+                
+                chatMessages.appendChild(suggestionsDiv);
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        }
+        
+        // Open chat window
+        function openChat() {
+            chatWindow.classList.add('active');
+            unreadMessages = 0;
+            messageBadge.style.display = 'none';
+            chatInput.focus();
+        }
+        
+        // Close chat window
+        function closeChatWindow() {
+            chatWindow.classList.remove('active');
+        }
+        
+        // Add a message to the chat
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}`;
+            
+            const messageTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            
+            messageDiv.innerHTML = `
+                <p>${text}</p>
+                <div class="message-time">${messageTime}</div>
+            `;
+            
+            chatMessages.appendChild(messageDiv);
+            
+            // Scroll to the bottom of the chat
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Show typing indicator
+        function showTypingIndicator() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'typing-indicator';
+            typingDiv.id = 'typingIndicator';
+            typingDiv.innerHTML = `
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+                <div class="typing-dot"></div>
+            `;
+            
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+        
+        // Remove typing indicator
+        function removeTypingIndicator() {
+            const typingIndicator = document.getElementById('typingIndicator');
+            if (typingIndicator) {
+                typingIndicator.remove();
+            }
+        }
+        
+        // Enhanced sendMessage function
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message === '') return;
+            
+            // Add user message
+            addMessage(message, 'user');
+            chatInput.value = '';
+            sendMessageBtn.disabled = true;
+            
+            // Show typing indicator
+            showTypingIndicator();
+            
+            // Get response after a delay (simulating thinking)
+            setTimeout(() => {
+                removeTypingIndicator();
+                
+                // Get bot response using enhanced chatbot
+                const botMessage = chatbot.getResponse(message);
+                addMessage(botMessage, 'bot');
+                
+                // Get and show suggestions based on user message
+                const suggestions = chatbot.getSuggestions(message);
+                showSuggestions(suggestions);
+                
+                // Re-enable send button
+                sendMessageBtn.disabled = false;
+                chatInput.focus();
+            }, 800 + Math.random() * 800);
+        }
+        
+        // Event Listeners for Chat
+        chatButton.addEventListener('click', openChat);
+        closeChat.addEventListener('click', closeChatWindow);
+        
+        startChatCard.addEventListener('click', function(e) {
+            e.preventDefault();
+            openChat();
+        });
+        
+        // Send message on button click
+        sendMessageBtn.addEventListener('click', sendMessage);
+        
+        // Send message on Enter key
+        chatInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        
+        // Quick reply buttons
+        document.querySelectorAll('.quick-reply').forEach(button => {
+            button.addEventListener('click', function() {
+                const replyText = this.getAttribute('data-reply');
+                chatInput.value = replyText;
+                sendMessage();
+            });
+        });
+        
+        // Simulate initial greeting from bot when chat is opened
+        chatButton.addEventListener('click', function() {
+            // If this is the first time opening, show a greeting
+            if (!chatWindow.classList.contains('has-greeted')) {
+                setTimeout(() => {
+                    addMessage("Is there anything specific you'd like to know about our flood relief efforts?", 'bot');
+                    chatWindow.classList.add('has-greeted');
+                }, 500);
+            }
+        });
+        
+        // Close chat when clicking outside
+        document.addEventListener('click', function(event) {
+            const isChatButton = chatButton.contains(event.target);
+            const isChatWindow = chatWindow.contains(event.target);
+            
+            if (!isChatButton && !isChatWindow && chatWindow.classList.contains('active')) {
+                closeChatWindow();
+            }
+        });
+
+        // Add notification badge when new message arrives (simulated)
+        setTimeout(() => {
+            if (!chatWindow.classList.contains('active')) {
+                unreadMessages++;
+                messageBadge.textContent = unreadMessages;
+                messageBadge.style.display = 'flex';
+                
+                // Animate the chat button
+                chatButton.style.animation = 'pulse 1s ease 3';
+            }
+        }, 10000); // Show notification after 10 seconds
+    </script>
+</body>
+</html>

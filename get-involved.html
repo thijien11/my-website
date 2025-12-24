@@ -1,0 +1,1355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Involved | Flood Relief Fund</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --gray: #5f6368;
+            --light-gray: #e8eaed;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-bar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        #toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .Navbar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .Navbar a {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .Navbar a:hover {
+            color: var(--primary);
+        }
+
+        .Navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .Navbar a:hover::after {
+            width: 100%;
+        }
+
+        .Navbar a.active {
+            color: var(--primary);
+        }
+
+        .Navbar a.active::after {
+            width: 100%;
+        }
+
+        .donate-btn-nav {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+            transition: var(--transition);
+        }
+
+        .donate-btn-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+            color: white;
+        }
+
+        /* Hero Section */
+        .involve-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .involve-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .involve-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .involve-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Get Involved Section */
+        .get-involved {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Involvement Cards */
+        .involve-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .involve-card {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .involve-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .involve-card:hover .card-image img {
+            transform: scale(1.05);
+        }
+
+        .card-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            z-index: 2;
+        }
+
+        .card-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .card-content p {
+            color: var(--gray);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .card-benefits {
+            margin-bottom: 20px;
+        }
+
+        .card-benefits h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .card-benefits ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .card-benefits li {
+            color: var(--gray);
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .card-benefits i {
+            color: var(--secondary);
+            margin-top: 3px;
+            font-size: 0.8rem;
+        }
+
+        .btn-card {
+            display: inline-block;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            text-align: center;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .btn-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(26, 115, 232, 0.3);
+            color: white;
+        }
+
+        .btn-card.secondary {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+        }
+
+        .btn-card.secondary:hover {
+            box-shadow: 0 6px 15px rgba(52, 168, 83, 0.3);
+        }
+
+        /* Volunteer Registration Form */
+        .volunteer-form-section {
+            padding: 100px 0;
+            background-color: #f0f7ff;
+        }
+
+        .form-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 50px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 16px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: white;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-item input {
+            width: auto;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+            display: block;
+            width: 100%;
+            max-width: 300px;
+            margin: 40px auto 0;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+        }
+
+        /* Impact Section */
+        .impact-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .impact-item {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .impact-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .impact-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .impact-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .impact-text {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 100px 0;
+            background-color: #f0f7ff;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: white;
+            margin-bottom: 20px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .faq-question {
+            padding: 25px 30px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--dark);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: rgba(26, 115, 232, 0.05);
+        }
+
+        .faq-question i {
+            transition: var(--transition);
+        }
+
+        .faq-answer {
+            padding: 0 30px;
+            max-height: 0;
+            overflow: hidden;
+            transition: var(--transition);
+            color: var(--gray);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 30px 30px;
+            max-height: 500px;
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about h3 span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: #b0b7c3;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4, .footer-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #b0b7c3;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #b0b7c3;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2d3748;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .impact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .involve-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .Navbar {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            #toggle:checked ~ .Navbar {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                padding: 30px;
+            }
+
+            .involve-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .impact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .involve-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-bar">
+        <div class="header-container container">
+            <div class="logo">
+                <img src="images/About.png" alt="Flood Relief Logo">
+                <div class="logo-text">Flood<span> Relief Fund</span></div>
+            </div>
+            
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav class="Navbar">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="donate.html">Donate</a>
+                <a href="get-involved.html" class="active">Get Involved</a>
+                <a href="team.html">Our Team</a>
+                <a href="contact.html">Contact</a>
+                <a href="donate.html" class="donate-btn-nav">Donate Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="involve-hero" id="hero">
+        <div class="involve-hero-content">
+            <h1>Join Our Movement</h1>
+            <p>Your involvement can transform lives and rebuild communities affected by floods. Together, we can create lasting change.</p>
+        </div>
+    </section>
+
+    <!-- Get Involved Section -->
+    <section class="get-involved">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ways to Get Involved</h2>
+                <p>Choose how you want to make a difference. Every contribution, big or small, helps us create lasting impact.</p>
+            </div>
+            
+            <div class="involve-cards">
+                <!-- Donate Card -->
+                <div class="involve-card">
+                    <div class="card-image">
+                        <img src="images/donate2.jpg" alt="Donate to support flood relief">
+                        <div class="card-icon">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Make a Donation</h3>
+                        <p>Your financial support directly helps families rebuild their lives, providing emergency relief and long-term recovery solutions.</p>
+                        
+                        <div class="card-benefits">
+                            <h4>Your donation provides:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Emergency food and water supplies</li>
+                                <li><i class="fas fa-check"></i> Temporary shelter for displaced families</li>
+                                <li><i class="fas fa-check"></i> Medical aid and healthcare services</li>
+                                <li><i class="fas fa-check"></i> Rebuilding of homes and infrastructure</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="donate.html" class="btn-card">Donate Now</a>
+                    </div>
+                </div>
+
+                <!-- Volunteer Card -->
+                <div class="involve-card">
+                    <div class="card-image">
+                        <img src="images/vol2.jpg" alt="Volunteer with our team">
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Become a Volunteer</h3>
+                        <p>Give your time and skills to help those in need recover faster. We need volunteers for field work, administration, and community outreach.</p>
+                        
+                        <div class="card-benefits">
+                            <h4>Volunteer opportunities:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Field relief operations</li>
+                                <li><i class="fas fa-check"></i> Community awareness programs</li>
+                                <li><i class="fas fa-check"></i> Administrative support</li>
+                                <li><i class="fas fa-check"></i> Skill-based volunteering (medical, engineering, etc.)</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn-card secondary" id="openVolunteerForm">Sign Up to Volunteer</button>
+                    </div>
+                </div>
+
+                <!-- Partner Card -->
+                <div class="involve-card">
+                    <div class="card-image">
+                        <img src="images/pat.jpg" alt="Partner with our organization">
+                        <div class="card-icon">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Become a Partner</h3>
+                        <p>Collaborate with us to expand our reach and maximize impact. We work with businesses, NGOs, and community organizations.</p>
+                        
+                        <div class="card-benefits">
+                            <h4>Partnership benefits:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Corporate matching programs</li>
+                                <li><i class="fas fa-check"></i> Joint community projects</li>
+                                <li><i class="fas fa-check"></i> Employee volunteering opportunities</li>
+                                <li><i class="fas fa-check"></i> Shared resources and expertise</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="contact.html" class="btn-card">Become a Partner</a>
+                    </div>
+                </div>
+
+                <!-- Fundraise Card -->
+                <div class="involve-card">
+                    <div class="card-image">
+                        <img src="images/donee.jpg" alt="Start a fundraising campaign">
+                        <div class="card-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                    </div>
+                    <div class="card-content">
+                        <h3>Start Fundraising</h3>
+                        <p>Create a campaign or event to spread awareness and raise funds. We provide tools and support to help you succeed.</p>
+                        
+                        <div class="card-benefits">
+                            <h4>Fundraising ideas:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Community events and walks</li>
+                                <li><i class="fas fa-check"></i> Online crowdfunding campaigns</li>
+                                <li><i class="fas fa-check"></i> Corporate challenges</li>
+                                <li><i class="fas fa-check"></i> Birthday or anniversary fundraisers</li>
+                            </ul>
+                        </div>
+                        
+                        <a href="contact.html" class="btn-card">Start Fundraising</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="impact-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Collective Impact</h2>
+                <p>See how our community of supporters is making a real difference</p>
+            </div>
+            
+            <div class="impact-grid">
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="impact-number" data-target="850">0</div>
+                    <div class="impact-text">Active Volunteers</div>
+                </div>
+                
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="impact-number" data-target="1200000">0</div>
+                    <div class="impact-text">Funds Raised (USD)</div>
+                </div>
+                
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="impact-number" data-target="3200">0</div>
+                    <div class="impact-text">Families Helped</div>
+                </div>
+                
+                <div class="impact-item">
+                    <div class="impact-icon">
+                        <i class="fas fa-globe-africa"></i>
+                    </div>
+                    <div class="impact-number" data-target="45">0</div>
+                    <div class="impact-text">Communities Reached</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Volunteer Registration Form (Initially Hidden) -->
+    <section class="volunteer-form-section" id="volunteerForm" style="display: none;">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h3>Volunteer Registration</h3>
+                    <p>Fill out the form below to join our volunteer team. We'll contact you with available opportunities.</p>
+                </div>
+                
+                <form id="volunteerRegistrationForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name *</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">Last Name *</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location/City *</label>
+                        <input type="text" id="location" name="location" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="skills">Skills & Expertise</label>
+                        <textarea id="skills" name="skills" placeholder="Tell us about your skills, experience, or areas of expertise..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Areas of Interest *</label>
+                        <div class="checkbox-group">
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fieldWork" name="interest" value="fieldWork">
+                                <label for="fieldWork">Field Relief Work</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="communityOutreach" name="interest" value="communityOutreach">
+                                <label for="communityOutreach">Community Outreach</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="administration" name="interest" value="administration">
+                                <label for="administration">Administrative Support</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="medical" name="interest" value="medical">
+                                <label for="medical">Medical/Healthcare</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="technical" name="interest" value="technical">
+                                <label for="technical">Technical/Engineering</label>
+                            </div>
+                            <div class="checkbox-item">
+                                <input type="checkbox" id="fundraising" name="interest" value="fundraising">
+                                <label for="fundraising">Fundraising/Events</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="availability">Availability *</label>
+                        <select id="availability" name="availability" required>
+                            <option value="">Select availability</option>
+                            <option value="weekdays">Weekdays</option>
+                            <option value="weekends">Weekends</option>
+                            <option value="flexible">Flexible</option>
+                            <option value="fullTime">Full-time (for extended projects)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="motivation">Why do you want to volunteer with us? *</label>
+                        <textarea id="motivation" name="motivation" required placeholder="Share your motivation for volunteering..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Submit Application</button>
+                </form>
+                
+                <div id="formSuccess" style="display: none; text-align: center; padding: 50px 20px;">
+                    <div style="font-size: 4rem; color: var(--secondary); margin-bottom: 20px;">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 style="margin-bottom: 15px; color: var(--dark);">Application Submitted Successfully!</h3>
+                    <p style="color: var(--gray); margin-bottom: 30px;">Thank you for your interest in volunteering with us. We'll review your application and contact you within 3-5 business days.</p>
+                    <button class="submit-btn" id="closeForm">Close</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find answers to common questions about getting involved</p>
+            </div>
+            
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What skills are needed to volunteer?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We welcome volunteers with diverse skills! While specific roles may require particular expertise (medical, engineering, etc.), many opportunities require only a willingness to help. Common needs include: field work assistance, administrative support, community outreach, event coordination, and translation services.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How are donations used?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>90% of all donations go directly to flood relief programs including emergency supplies, shelter, medical aid, and community rebuilding. 7% covers operational costs, and 3% goes to fundraising efforts. We publish detailed annual financial reports for complete transparency.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I volunteer remotely?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! We have remote volunteering opportunities in areas like: social media management, graphic design, content writing, data entry, research, and virtual fundraising campaigns. Indicate your interest in remote work when submitting your volunteer application.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What support do you provide to fundraisers?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>We provide comprehensive support to fundraisers including: branded campaign materials, fundraising toolkits, social media promotion, guidance on effective fundraising strategies, and assistance with campaign setup on our platform. Our team is available to help you succeed in your fundraising efforts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-about">
+                    <h3>Flood<span> Relief Fund</span></h3>
+                    <p>Bringing hope and relief to communities affected by floods. Together, we can make a difference.</p>
+                    <a href="#hero" class="btn-card" style="display: inline-block; padding: 10px 20px; margin-top: 10px; width: auto;">Get Involved</a>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> floodrelieffund.org</p>
+                    <p><i class="fas fa-phone"></i> +254 713 605 672</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thika Road, Nairobi, Kenya</p>
+                </div>
+
+                <!-- Social Media Column -->
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #b0b7c3; font-size: 0.9rem;">Subscribe to our newsletter</p>
+                    <form class="newsletter-form" style="margin-top: 10px;">
+                        <input type="email" placeholder="Your email" style="padding: 10px; border-radius: 4px; border: none; width: 70%; margin-right: 5px;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 Flood Relief Fund. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header-bar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Volunteer form toggle
+        document.getElementById('openVolunteerForm').addEventListener('click', () => {
+            document.getElementById('volunteerForm').style.display = 'block';
+            document.getElementById('volunteerForm').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        document.getElementById('closeForm').addEventListener('click', () => {
+            document.getElementById('volunteerForm').style.display = 'none';
+            document.getElementById('get-involved').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Volunteer form submission
+        document.getElementById('volunteerRegistrationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simple validation
+            const firstName = document.getElementById('firstName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            
+            if (!firstName || !email || !phone) {
+                alert('Please fill in all required fields.');
+                return;
+            }
+            
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Show success message
+            document.getElementById('volunteerRegistrationForm').style.display = 'none';
+            document.getElementById('formSuccess').style.display = 'block';
+            
+            // In a real implementation, you would submit the form data to your server here
+            console.log('Volunteer application submitted:', {
+                name: firstName + ' ' + document.getElementById('lastName').value,
+                email: email,
+                phone: phone
+            });
+        });
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(email);
+        }
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other FAQ items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item && otherItem.classList.contains('active')) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+
+        // Animated Counter for Impact Stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.impact-number');
+            const speed = 200; // Lower is faster
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment).toLocaleString();
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+
+        // Start counter animation when impact section is in view
+        const impactSection = document.querySelector('.impact-section');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(impactSection);
+
+        // Toggle mobile menu
+        document.getElementById('toggle').addEventListener('change', function() {
+            document.body.style.overflow = this.checked ? 'hidden' : 'auto';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.Navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('toggle').checked = false;
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Card hover animations
+        document.querySelectorAll('.involve-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

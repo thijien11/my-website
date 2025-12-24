@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Team | United Against Floods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --gray: #5f6368;
+            --light-gray: #e8eaed;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-bar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        #toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .Navbar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .Navbar a {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .Navbar a:hover {
+            color: var(--primary);
+        }
+
+        .Navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .Navbar a:hover::after {
+            width: 100%;
+        }
+
+        .Navbar a.active {
+            color: var(--primary);
+        }
+
+        .Navbar a.active::after {
+            width: 100%;
+        }
+
+        .donate-btn-nav {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+            transition: var(--transition);
+        }
+
+        .donate-btn-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+            color: white;
+        }
+
+        /* Team Hero */
+        .team-hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/TEM.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .team-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .team-hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .team-hero p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Team Section */
+        .our-team {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Team Members */
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        .team-member {
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            height: 100%;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .member-image {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .team-member:hover .member-image img {
+            transform: scale(1.05);
+        }
+
+        .member-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            padding: 20px;
+            color: white;
+            transform: translateY(100%);
+            transition: var(--transition);
+        }
+
+        .team-member:hover .member-overlay {
+            transform: translateY(0);
+        }
+
+        .member-info {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .member-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--dark);
+        }
+
+        .member-role {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 6px 18px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.2);
+        }
+
+        .member-bio {
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .member-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .skill-tag {
+            background-color: rgba(26, 115, 232, 0.1);
+            color: var(--primary);
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .member-social {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--light-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gray);
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            background-color: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* Team Stats */
+        .team-stats {
+            padding: 80px 0;
+            background-color: #f0f7ff;
+            margin-top: 50px;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .stat-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        /* Team Values */
+        .team-values {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .values-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 50px 30px;
+            background-color: var(--light);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: white;
+            font-size: 2rem;
+            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.3);
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .value-card p {
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* Join Team CTA */
+        .join-team {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+        }
+
+        .join-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .join-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .join-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Team Member Modal */
+        .team-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .team-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            width: 800px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .modal-body {
+                flex-direction: row;
+            }
+        }
+
+        .modal-image {
+            flex: 1;
+            min-height: 300px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .modal-info {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .modal-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: var(--dark);
+        }
+
+        .modal-role {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .modal-bio {
+            color: var(--gray);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .modal-details h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .modal-details ul {
+            margin-bottom: 25px;
+        }
+
+        .modal-details li {
+            color: var(--gray);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .modal-details i {
+            color: var(--secondary);
+            margin-top: 3px;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about h3 span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: #b0b7c3;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4, .footer-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #b0b7c3;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #b0b7c3;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2d3748;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .Navbar {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            #toggle:checked ~ .Navbar {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .team-members {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .team-hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .values-container {
+                grid-template-columns: 1fr;
+            }
+
+            .member-image {
+                height: 280px;
+            }
+
+            .modal-body {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header-bar">
+        <div class="header-container container">
+            <div class="logo">
+                <img src="images/About.png" alt="Flood Relief Logo">
+                <div class="logo-text">Flood <span>Relief Fund</span></div>
+            </div>
+            
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav class="Navbar">
+                <a href="home.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="donate.html">Donate</a>
+                <a href="get-involved.html">Get Involved</a>
+                <a href="team.html" class="active">Our Team</a>
+                <a href="contact.html">Contact</a>
+                <a href="donate.html" class="donate-btn-nav">Donate Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Team Hero -->
+    <section class="team-hero" id="hero">
+        <div class="team-hero-content">
+            <h1>Meet Our Team</h1>
+            <p>Our dedicated team works passionately to bring positive change and support to communities in need. Meet the people behind our mission.</p>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="our-team">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Leadership Team</h2>
+                <p>Meet the passionate individuals who lead our efforts to bring relief and hope to flood-affected communities</p>
+            </div>
+            
+            <div class="team-members">
+                <!-- Tebuom Gatwech -->
+                <div class="team-member" data-member="tebuom">
+                    <div class="member-image">
+                        <img src="images/TEM.jpg" alt="TEBUOM GATWECH">
+                        <div class="member-overlay">
+                            <p>Click to learn more about Tebuom's leadership journey</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>TEBUOM GATWECH</h3>
+                        <div class="member-role">Founder & CEO</div>
+                        <p class="member-bio">Tebuom leads with vision and compassion, driving our mission forward with over 10 years of experience in disaster relief and community development.</p>
+                        
+                        <div class="member-skills">
+                            <span class="skill-tag">Strategic Leadership</span>
+                            <span class="skill-tag">Disaster Management</span>
+                            <span class="skill-tag">Community Development</span>
+                        </div>
+                        
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Thijien Chikot -->
+                <div class="team-member" data-member="thijien">
+                    <div class="member-image">
+                        <img src="images/thijien.jpg" alt="THIJIEN CHIKOT">
+                        <div class="member-overlay">
+                            <p>Click to learn more about Thijien's project management expertise</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>THIJIEN CHIKOT</h3>
+                        <div class="member-role">Program Manager</div>
+                        <p class="member-bio">Thijien coordinates projects with care, ensuring effective support reaches those who need it most through meticulous planning and execution.</p>
+                        
+                        <div class="member-skills">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Logistics</span>
+                            <span class="skill-tag">Team Coordination</span>
+                        </div>
+                        
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gatwech Both -->
+                <div class="team-member" data-member="gatwech">
+                    <div class="member-image">
+                        <img src="images/gatwech.jpg" alt="GATWECH BOTH">
+                        <div class="member-overlay">
+                            <p>Click to learn more about Gatwech's community work</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>GATWECH BOTH</h3>
+                        <div class="member-role">Community Outreach Director</div>
+                        <p class="member-bio">Gatwech builds strong relationships with local communities, spreading hope and opportunities through effective communication and partnership building.</p>
+                        
+                        <div class="member-skills">
+                            <span class="skill-tag">Community Engagement</span>
+                            <span class="skill-tag">Public Relations</span>
+                            <span class="skill-tag">Partnership Building</span>
+                        </div>
+                        
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Wichnok Jr -->
+                <div class="team-member" data-member="wichnok">
+                    <div class="member-image">
+                        <img src="images/chot.jpg" alt="WICHNOK JR">
+                        <div class="member-overlay">
+                            <p>Click to learn more about Wichnok's volunteer coordination</p>
+                        </div>
+                    </div>
+                    <div class="member-info">
+                        <h3>WICHNOK JR</h3>
+                        <div class="member-role">Volunteer Coordinator</div>
+                        <p class="member-bio">Wichnok connects volunteers with meaningful roles that make a real difference in people's lives, ensuring every volunteer's time and skills are maximized.</p>
+                        
+                        <div class="member-skills">
+                            <span class="skill-tag">Volunteer Management</span>
+                            <span class="skill-tag">Training & Development</span>
+                            <span class="skill-tag">Team Building</span>
+                        </div>
+                        
+                        <div class="member-social">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-link"><i class="fas fa-envelope"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Stats -->
+    <section class="team-stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-target="45">0</div>
+                    <div class="stat-label">Team Members</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="stat-number" data-target="850">0</div>
+                    <div class="stat-label">Volunteers Managed</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <div class="stat-number" data-target="120">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-target="18">0</div>
+                    <div class="stat-label">Awards & Recognition</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Values -->
+    <section class="team-values">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Values</h2>
+                <p>These principles guide everything we do as a team and organization</p>
+            </div>
+            
+            <div class="values-container">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Compassion</h3>
+                    <p>We lead with empathy and understanding, treating every individual with dignity and respect in all our interactions.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Collaboration</h3>
+                    <p>We believe in the power of working together—with communities, partners, and each other—to achieve greater impact.</p>
+                </div>
+                
+                <div class="value-card">
+                    <div class="value-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Accountability</h3>
+                    <p>We take responsibility for our actions and are transparent in how we use resources to build trust with our supporters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Join Team CTA -->
+    <section class="join-team">
+        <div class="container">
+            <div class="join-content">
+                <h2>Join Our Team</h2>
+                <p>We're always looking for passionate individuals who want to make a difference. Explore opportunities to work with us or volunteer your time.</p>
+                <div>
+                    <a href="get-involved.html" class="btn btn-primary">View Opportunities</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Member Modal -->
+    <div class="team-modal" id="teamModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">
+                <i class="fas fa-times"></i>
+            </button>
+            
+            <div class="modal-body">
+                <div class="modal-image" id="modalMemberImage"></div>
+                <div class="modal-info">
+                    <h3 id="modalMemberName"></h3>
+                    <div class="modal-role" id="modalMemberRole"></div>
+                    <p class="modal-bio" id="modalMemberBio"></p>
+                    
+                    <div class="modal-details">
+                        <h4>Key Responsibilities</h4>
+                        <ul id="modalResponsibilities"></ul>
+                        
+                        <h4>Experience & Education</h4>
+                        <ul id="modalExperience"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-about">
+                    <h3>Flood <span>Relief Fund</span></h3>
+                    <p>Bringing hope and relief to communities affected by floods. Together, we can make a difference.</p>
+                    <a href="contact.html" class="btn btn-primary" style="display: inline-block; padding: 10px 20px; margin-top: 10px;">Contact Our Team</a>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> team@floodrelieffund.org</p>
+                    <p><i class="fas fa-phone"></i> +254 713605672</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Thika Road, Nairobi, Kenya</p>
+                </div>
+
+                <!-- Social Media Column -->
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #b0b7c3; font-size: 0.9rem;">Subscribe to our newsletter</p>
+                    <form class="newsletter-form" style="margin-top: 10px;">
+                        <input type="email" placeholder="Your email" style="padding: 10px; border-radius: 4px; border: none; width: 70%; margin-right: 5px;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025  Flood Relief Fund. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header-bar');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Team Member Data
+        const teamMembers = {
+            tebuom: {
+                name: "TEBUOM GATWECH",
+                role: "Founder & CEO",
+                bio: "Tebuom leads with vision and compassion, driving our mission forward with over 10 years of experience in disaster relief and community development. His leadership has been instrumental in expanding our reach to multiple flood-affected regions.",
+                image: "images/TEM.jpg",
+                responsibilities: [
+                    "Strategic planning and organizational direction",
+                    "Building partnerships with government and NGOs",
+                    "Overseeing fundraising and resource allocation",
+                    "Representing the organization at national and international forums"
+                ],
+                experience: [
+                    "Master's in Disaster Management, University of Nairobi",
+                    "10+ years in humanitarian relief work",
+                    "Former director at Kenya Red Cross Society",
+                    "UN-certified disaster response specialist"
+                ]
+            },
+            thijien: {
+                name: "THIJIEN CHIKOT",
+                role: "Program Manager",
+                bio: "Thijien coordinates projects with care, ensuring effective support reaches those who need it most through meticulous planning and execution. She has managed over 50 relief projects across East Africa.",
+                image: "images/thijien.jpg",
+                responsibilities: [
+                    "Planning and implementing relief programs",
+                    "Managing field operations and logistics",
+                    "Monitoring and evaluation of project outcomes",
+                    "Coordinating with local community leaders"
+                ],
+                experience: [
+                    "Bachelor's in Social Work, Kenyatta University",
+                    "Certified Project Management Professional (PMP)",
+                    "8 years in humanitarian program management",
+                    "Specialized training in emergency response coordination"
+                ]
+            },
+            gatwech: {
+                name: "GATWECH BOTH",
+                role: "Community Outreach Director",
+                bio: "Gatwech builds strong relationships with local communities, spreading hope and opportunities through effective communication and partnership building. His work has helped establish trust in over 30 communities.",
+                image: "images/gatwech.jpg",
+                responsibilities: [
+                    "Developing community engagement strategies",
+                    "Building relationships with local leaders",
+                    "Conducting needs assessments and surveys",
+                    "Organizing community awareness programs"
+                ],
+                experience: [
+                    "Degree in Community Development, Moi University",
+                    "7 years in community mobilization and outreach",
+                    "Fluent in 4 local languages",
+                    "Certified in participatory rural appraisal methods"
+                ]
+            },
+            wichnok: {
+                name: "WICHNOK JR",
+                role: "Volunteer Coordinator",
+                bio: "Wichnok connects volunteers with meaningful roles that make a real difference in people's lives, ensuring every volunteer's time and skills are maximized. She has coordinated over 850 volunteers across various projects.",
+                image: "images/chot.jpg",
+                responsibilities: [
+                    "Recruiting, training, and managing volunteers",
+                    "Matching volunteer skills with organizational needs",
+                    "Organizing volunteer appreciation events",
+                    "Maintaining volunteer databases and records"
+                ],
+                experience: [
+                    "Diploma in Human Resource Management",
+                    "5 years in volunteer coordination",
+                    "Certified in volunteer management best practices",
+                    "Experience with international volunteer programs"
+                ]
+            }
+        };
+
+        // Team Member Modal
+        const modal = document.getElementById('teamModal');
+        const modalClose = document.getElementById('modalClose');
+        const modalMemberImage = document.getElementById('modalMemberImage');
+        const modalMemberName = document.getElementById('modalMemberName');
+        const modalMemberRole = document.getElementById('modalMemberRole');
+        const modalMemberBio = document.getElementById('modalMemberBio');
+        const modalResponsibilities = document.getElementById('modalResponsibilities');
+        const modalExperience = document.getElementById('modalExperience');
+
+        // Open modal when clicking on team member
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('click', () => {
+                const memberId = member.getAttribute('data-member');
+                const memberData = teamMembers[memberId];
+                
+                if (memberData) {
+                    modalMemberImage.style.backgroundImage = `url('${memberData.image}')`;
+                    modalMemberName.textContent = memberData.name;
+                    modalMemberRole.textContent = memberData.role;
+                    modalMemberBio.textContent = memberData.bio;
+                    
+                    // Clear previous lists
+                    modalResponsibilities.innerHTML = '';
+                    modalExperience.innerHTML = '';
+                    
+                    // Add responsibilities
+                    memberData.responsibilities.forEach(resp => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<i class="fas fa-check-circle"></i> ${resp}`;
+                        modalResponsibilities.appendChild(li);
+                    });
+                    
+                    // Add experience
+                    memberData.experience.forEach(exp => {
+                        const li = document.createElement('li');
+                        li.innerHTML = `<i class="fas fa-graduation-cap"></i> ${exp}`;
+                        modalExperience.appendChild(li);
+                    });
+                    
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Close modal
+        modalClose.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (modal.classList.contains('active') && e.key === 'Escape') {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Animated Counter for Stats
+        function animateCounters() {
+            const counters = document.querySelectorAll('.stat-number');
+            const speed = 200; // Lower is faster
+            
+            counters.forEach(counter => {
+                const updateCount = () => {
+                    const target = +counter.getAttribute('data-target');
+                    const count = +counter.innerText.replace(/,/g, '');
+                    const increment = target / speed;
+                    
+                    if (count < target) {
+                        counter.innerText = Math.ceil(count + increment).toLocaleString();
+                        setTimeout(updateCount, 20);
+                    } else {
+                        counter.innerText = target.toLocaleString();
+                    }
+                };
+                
+                updateCount();
+            });
+        }
+
+        // Start counter animation when stats section is in view
+        const statsSection = document.querySelector('.team-stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        observer.observe(statsSection);
+
+        // Toggle mobile menu
+        document.getElementById('toggle').addEventListener('change', function() {
+            document.body.style.overflow = this.checked ? 'hidden' : 'auto';
+        });
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.Navbar a').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('toggle').checked = false;
+                document.body.style.overflow = 'auto';
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Team member hover animations
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('mouseenter', () => {
+                member.style.transform = 'translateY(-10px)';
+            });
+            
+            member.addEventListener('mouseleave', () => {
+                member.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>

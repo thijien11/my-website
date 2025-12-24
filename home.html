@@ -1,0 +1,1853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | United Against Floods</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a73e8;
+            --primary-dark: #0d47a1;
+            --secondary: #34a853;
+            --accent: #ea4335;
+            --light: #f8f9fa;
+            --dark: #202124;
+            --gray: #5f6368;
+            --light-gray: #e8eaed;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+            --border-radius: 12px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        .header-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            z-index: 1000;
+            padding: 15px 0;
+            transition: var(--transition);
+        }
+
+        .header-bar.scrolled {
+            padding: 10px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo-text span {
+            color: var(--secondary);
+        }
+
+        #toggle {
+            display: none;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary);
+        }
+
+        .Navbar {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .Navbar a {
+            font-weight: 500;
+            font-size: 1rem;
+            padding: 8px 0;
+            position: relative;
+            color: var(--gray);
+        }
+
+        .Navbar a:hover {
+            color: var(--primary);
+        }
+
+        .Navbar a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary);
+            transition: var(--transition);
+        }
+
+        .Navbar a:hover::after {
+            width: 100%;
+        }
+
+        .Navbar a.active {
+            color: var(--primary);
+        }
+
+        .Navbar a.active::after {
+            width: 100%;
+        }
+
+        .donate-btn-nav {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+            transition: var(--transition);
+        }
+
+        .donate-btn-nav:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 85vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1621506289937-a8e4df480b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            margin-top: 80px;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        .typing-container {
+            min-height: 120px;
+            margin-bottom: 30px;
+        }
+
+        .typing {
+            font-size: 1.4rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 3px;
+            height: 1.4rem;
+            background-color: white;
+            margin-left: 5px;
+            animation: blink 0.7s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .fade-text {
+            font-size: 1.2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1s ease, transform 1s ease;
+            margin-bottom: 15px;
+        }
+
+        .fade-text.fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 14px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--secondary), #2e8b47);
+            color: white;
+            box-shadow: 0 4px 15px rgba(52, 168, 83, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
+            color: white;
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Live Stats from Admin */
+        .live-stats-container {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            padding: 40px 0;
+            margin-top: -30px;
+            z-index: 10;
+            position: relative;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .live-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+
+        .live-stat-item {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .live-stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+            color: white;
+        }
+
+        .live-stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .live-stat-update {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Stats Section */
+        .impact-stats {
+            padding: 80px 0;
+            background-color: #f0f7ff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .stat-label {
+            color: var(--gray);
+            font-weight: 500;
+        }
+
+        .stat-source {
+            font-size: 0.8rem;
+            color: var(--gray);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .gallery-figure {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 350px;
+        }
+
+        .gallery-figure:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-figure:hover .gallery-img {
+            transform: scale(1.05);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .gallery-figure:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        .gallery-caption h3 {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .gallery-caption p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Recent Donations from Admin */
+        .recent-donations {
+            background-color: #f9f9f9;
+            padding: 80px 0;
+            border-radius: var(--border-radius);
+            margin: 40px auto;
+            max-width: 1200px;
+        }
+
+        .donation-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .donation-card {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .donor-name {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+
+        .donation-amount {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .donation-date {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: white;
+            text-align: center;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 80px 0 20px;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .footer-about h3 span {
+            color: var(--secondary);
+        }
+
+        .footer-about p {
+            color: #b0b7c3;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4, .footer-contact h4, .footer-social h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after, .footer-social h4::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 3px;
+            background-color: var(--secondary);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul li a {
+            color: #b0b7c3;
+            transition: var(--transition);
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary);
+            padding-left: 5px;
+        }
+
+        .footer-contact p {
+            color: #b0b7c3;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-contact i {
+            color: var(--secondary);
+            margin-top: 5px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #2d3748;
+            border-radius: 50%;
+            color: white;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .social-icons a:hover {
+            background-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            color: #b0b7c3;
+            font-size: 0.9rem;
+        }
+
+        .admin-access {
+            text-align: center;
+            padding: 15px 0;
+            border-top: 1px solid #2d3748;
+            margin-top: 20px;
+        }
+
+        .admin-access a {
+            color: var(--secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+
+        .admin-access a:hover {
+            color: var(--primary);
+        }
+
+        /* Data Connection Status */
+        .data-status {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: white;
+            padding: 12px 18px;
+            border-radius: var(--border-radius);
+            font-size: 0.85rem;
+            z-index: 1000;
+            box-shadow: var(--shadow);
+            display: none;
+            align-items: center;
+            gap: 10px;
+            max-width: 300px;
+            animation: slideInRight 0.3s ease;
+        }
+
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .data-status.connected {
+            background: var(--secondary);
+        }
+
+        .data-status.syncing {
+            background: var(--accent);
+        }
+
+        .data-status.error {
+            background: #ff6b6b;
+        }
+
+        /* Loading States */
+        .loading {
+            position: relative;
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading::after {
+            content: '';
+            width: 30px;
+            height: 30px;
+            border: 3px solid var(--light-gray);
+            border-top-color: var(--primary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .live-stats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .Navbar {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            #toggle:checked ~ .Navbar {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .gallery {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-title h2 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .live-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .donation-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Data Status Indicator -->
+    <div class="data-status" id="dataStatus">
+        <i class="fas fa-circle"></i>
+        <span id="dataStatusText">Connecting...</span>
+    </div>
+
+    <!-- Header -->
+    <header class="header-bar">
+        <div class="header-container container">
+            <div class="logo">
+                <img src="images/About.png" alt="Flood Relief Logo">
+                <div class="logo-text">United<span>AgainstFloods</span></div>
+            </div>
+            
+            <input type="checkbox" id="toggle">
+            <label for="toggle" class="menu-btn">
+                <i class="fas fa-bars"></i>
+            </label>
+            
+            <nav class="Navbar">
+                <a href="home.html" class="active">Home</a>
+                <a href="about.html">About</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="donate.html">Donate</a>
+                <a href="get-involved.html">Get Involved</a>
+                <a href="team.html">Our Team</a>
+                <a href="contact.html">Contact</a>
+                <a href="donate.html" class="donate-btn-nav">Donate Now</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1>United Against Floods</h1>
+            
+            <div class="typing-container">
+                <div class="typing" id="typingText"></div>
+                <span class="cursor" id="typingCursor"></span>
+            </div>
+            
+            <p class="fade-text">Join us in our mission to provide relief and support to communities in need.</p>
+            <p class="fade-text">Together, we can rebuild lives and restore hope.</p>
+            
+            <div class="hero-btns">
+                <a href="donate.html" class="btn btn-primary">Donate Now</a>
+                <a href="get-involved.html" class="btn btn-secondary">Get Involved</a>
+                <a href="#gallery" class="btn btn-secondary">View Gallery</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Stats from Admin -->
+    <div class="container">
+        <div class="live-stats-container">
+            <div class="live-stats" id="liveStats">
+                <!-- Live stats loaded from admin dashboard -->
+                <div class="live-stat-item">
+                    <div class="live-stat-value" id="liveTotalDonations">$0</div>
+                    <div class="live-stat-label">Total Donations</div>
+                    <div class="live-stat-update" id="liveDonationsUpdate">Loading...</div>
+                </div>
+                <div class="live-stat-item">
+                    <div class="live-stat-value" id="liveActiveVolunteers">0</div>
+                    <div class="live-stat-label">Active Volunteers</div>
+                    <div class="live-stat-update" id="liveVolunteersUpdate">Loading...</div>
+                </div>
+                <div class="live-stat-item">
+                    <div class="live-stat-value" id="liveOngoingProjects">0</div>
+                    <div class="live-stat-label">Ongoing Projects</div>
+                    <div class="live-stat-update" id="liveProjectsUpdate">Loading...</div>
+                </div>
+                <div class="live-stat-item">
+                    <div class="live-stat-value" id="liveNewSupporters">0</div>
+                    <div class="live-stat-label">New Supporters</div>
+                    <div class="live-stat-update" id="liveSupportersUpdate">Loading...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Section (Connected to Admin Dashboard) -->
+    <section class="impact-stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="stat-number" id="projectsCompleted">0</div>
+                    <div class="stat-label">Projects Completed</div>
+                    <div class="stat-source" id="projectsSource">Updated from Admin Dashboard</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" id="livesImpacted">0</div>
+                    <div class="stat-label">Lives Impacted</div>
+                    <div class="stat-source" id="livesSource">Updated from Admin Dashboard</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <div class="stat-number" id="activeVolunteers">0</div>
+                    <div class="stat-label">Active Volunteers</div>
+                    <div class="stat-source" id="volunteersSource">Live from Admin Dashboard</div>
+                </div>
+                
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="stat-number" id="communitiesServed">0</div>
+                    <div class="stat-label">Communities Served</div>
+                    <div class="stat-source" id="communitiesSource">Updated from Admin Dashboard</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recent Donations from Admin -->
+    <section class="recent-donations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recent Donations</h2>
+                <p>See how our supporters are making a difference</p>
+            </div>
+            <div class="donation-list" id="recentDonations">
+                <!-- Recent donations loaded from admin dashboard -->
+                <div class="loading"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section (Connected to Admin Dashboard) -->
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Impact in Images</h2>
+                <p>Witness the difference we're making in communities affected by floods</p>
+            </div>
+            
+            <div class="gallery" id="dynamicGallery">
+                <!-- Gallery loaded dynamically from admin dashboard -->
+                <div class="loading"></div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="gallery.html" class="btn btn-primary" style="padding: 15px 40px;">
+                    <i class="fas fa-images"></i> View Full Gallery
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Make a Difference?</h2>
+                <p>Your support can change lives. Whether through donations, volunteering, or spreading awareness, every action counts in our fight against floods.</p>
+                <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                    <a href="donate.html" class="btn btn-primary" style="background: white; color: var(--primary);">Donate Now</a>
+                    <a href="get-involved.html" class="btn btn-secondary">Volunteer Today</a>
+                    <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with Admin Access Link -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-container">
+                <!-- About Column -->
+                <div class="footer-about">
+                    <h3>United<span>AgainstFloods</span></h3>
+                    <p>Bringing hope and relief to communities affected by floods. Together, we can make a difference.</p>
+                    <a href="donate.html" class="btn btn-primary" style="display: inline-block; padding: 10px 20px; margin-top: 10px;">Donate Now</a>
+                </div>
+
+                <!-- Quick Links Column -->
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="get-involved.html">Get Involved</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="donate.html">Donate</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Column -->
+                <div class="footer-contact">
+                    <h4>Contact</h4>
+                    <p><i class="fas fa-envelope"></i> info@unitedagainstfloods.org</p>
+                    <p><i class="fas fa-phone"></i> +254 700 123 456</p>
+                    <p><i class="fas fa-map-marker-alt"></i> 123 Community Street, Nairobi, Kenya</p>
+                </div>
+
+                <!-- Social Media Column -->
+                <div class="footer-social">
+                    <h4>Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                    <p style="margin-top: 20px; color: #b0b7c3; font-size: 0.9rem;">Subscribe to our newsletter</p>
+                    <form class="newsletter-form" style="margin-top: 10px;" onsubmit="subscribeNewsletter(event)">
+                        <input type="email" id="newsletterEmail" placeholder="Your email" required style="padding: 10px; border-radius: 4px; border: none; width: 70%; margin-right: 5px;">
+                        <button type="submit" style="background: var(--primary); color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer;">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Admin Access Link -->
+            <div class="admin-access">
+                <<a href="admin.html">Admin Dashboard</a>
+                    <i class="fas fa-lock"></i> Admin Dashboard Access
+                </a>
+                <p style="margin-top: 10px; color: #b0b7c3; font-size: 0.8rem;">Last data sync: <span id="lastSyncTime">Never</span></p>
+                <button id="refreshDataBtn" style="background: none; border: none; color: var(--secondary); cursor: pointer; font-size: 0.8rem; margin-top: 5px;">
+                    <i class="fas fa-sync-alt"></i> Refresh Data Now
+                </button>
+            </div>
+
+            <!-- Bottom copyright -->
+            <div class="footer-bottom">
+                <p>&copy; 2025 United Against Floods. All Rights Reserved. | <a href="#" style="color: var(--secondary);">Privacy Policy</a> | <a href="#" style="color: var(--secondary);">Terms of Service</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ===== SHARED DATA BRIDGE =====
+        // This connects directly to the admin dashboard data structure
+        
+        const UAFDataConnector = {
+            // Admin dashboard data structure (matches the one in admin dashboard)
+            adminData: null,
+            lastUpdate: null,
+            syncInterval: null,
+            
+            // Initialize connection to admin data
+            init() {
+                console.log('UAF Data Connector initialized');
+                this.loadAdminData();
+                this.setupStorageListener();
+                this.setupAutoSync();
+                this.updateDataStatus('initializing', 'Connecting to admin data...');
+                return this;
+            },
+            
+            // Load data from admin dashboard storage
+            loadAdminData() {
+                try {
+                    // Try to get the exact dashboard data from admin
+                    const adminStats = localStorage.getItem('dashboardData');
+                    const adminGallery = localStorage.getItem('gallery_images');
+                    const adminDonations = localStorage.getItem('recent_donations');
+                    
+                    // Parse admin data or create default structure
+                    if (adminStats) {
+                        this.adminData = JSON.parse(adminStats);
+                    } else {
+                        // Create data structure matching the admin dashboard
+                        this.adminData = this.getDefaultAdminData();
+                    }
+                    
+                    // Load gallery if available
+                    if (adminGallery) {
+                        try {
+                            this.adminData.gallery = JSON.parse(adminGallery);
+                        } catch (e) {
+                            console.warn('Could not parse gallery data:', e);
+                        }
+                    }
+                    
+                    // Load donations if available
+                    if (adminDonations) {
+                        try {
+                            this.adminData.donations = JSON.parse(adminDonations);
+                        } catch (e) {
+                            console.warn('Could not parse donations data:', e);
+                        }
+                    }
+                    
+                    this.lastUpdate = new Date();
+                    this.updateDataStatus('connected', 'Connected to admin dashboard data');
+                    console.log('Admin data loaded:', this.adminData);
+                    
+                    // Dispatch data loaded event
+                    this.dispatchDataEvent('data-loaded');
+                    
+                    return true;
+                } catch (error) {
+                    console.error('Error loading admin data:', error);
+                    this.adminData = this.getDefaultAdminData();
+                    this.updateDataStatus('error', 'Using default data');
+                    return false;
+                }
+            },
+            
+            // Get default data matching admin dashboard structure
+            getDefaultAdminData() {
+                // This matches the dashboardData structure from admin dashboard
+                return {
+                    stats: {
+                        totalDonations: 12450,
+                        activeVolunteers: 48,
+                        ongoingProjects: 7,
+                        newSupporters: 127,
+                        pendingDonations: 5,
+                        pendingVolunteers: 3,
+                        pendingRequests: 8
+                    },
+                    donations: [
+                        { id: 1, donor: "John Smith", email: "john@email.com", amount: 250, type: "one-time", status: "completed", date: "2024-03-15", method: "card" },
+                        { id: 2, donor: "Sarah Johnson", email: "sarah@email.com", amount: 100, type: "monthly", status: "pending", date: "2024-03-14", method: "paypal" },
+                        { id: 3, donor: "Michael Brown", email: "michael@email.com", amount: 500, type: "one-time", status: "completed", date: "2024-03-13", method: "bank" },
+                        { id: 4, donor: "Emily Davis", email: "emily@email.com", amount: 50, type: "monthly", status: "completed", date: "2024-03-12", method: "card" },
+                        { id: 5, donor: "Robert Wilson", email: "robert@email.com", amount: 1000, type: "one-time", status: "completed", date: "2024-03-11", method: "card" }
+                    ],
+                    volunteers: [
+                        { id: 1, name: "David Wilson", email: "david@email.com", phone: "+254 712 345 678", location: "Nairobi", status: "active", skills: "First Aid, Logistics", date: "2024-03-10" },
+                        { id: 2, name: "Lisa Anderson", email: "lisa@email.com", phone: "+254 723 456 789", location: "Mombasa", status: "pending", skills: "Medical, Counseling", date: "2024-03-09" },
+                        { id: 3, name: "Robert Taylor", email: "robert@email.com", phone: "+254 734 567 890", location: "Kisumu", status: "active", skills: "Engineering, Construction", date: "2024-03-08" }
+                    ],
+                    gallery: [
+                        {
+                            image: 'images/BABY.jpg',
+                            title: 'Innocent Baby',
+                            description: 'Protected and cared for after devastating floods',
+                            category: 'children'
+                        },
+                        {
+                            image: 'images/WOMAN.jpg',
+                            title: 'Confident Woman',
+                            description: 'Rebuilding her life with strength and resilience',
+                            category: 'women'
+                        },
+                        {
+                            image: 'images/by.jpg',
+                            title: 'Young Boy',
+                            description: 'Finding hope and joy amidst challenges',
+                            category: 'children'
+                        },
+                        {
+                            image: 'images/mother.jpg',
+                            title: 'Loving Mother',
+                            description: 'Protecting her family with unwavering love',
+                            category: 'women'
+                        },
+                        {
+                            image: 'images/FIELD.jpg',
+                            title: 'Peaceful Field',
+                            description: 'Restoring agricultural land for community sustainability',
+                            category: 'community'
+                        },
+                        {
+                            image: 'images/pat.jpg',
+                            title: 'Community Partner',
+                            description: 'Working together for flood resilience',
+                            category: 'community'
+                        }
+                    ],
+                    timestamp: new Date().toISOString()
+                };
+            },
+            
+            // Get data from admin
+            getStats() {
+                return this.adminData ? this.adminData.stats : null;
+            },
+            
+            getDonations() {
+                return this.adminData ? this.adminData.donations : [];
+            },
+            
+            getGallery() {
+                return this.adminData ? this.adminData.gallery : [];
+            },
+            
+            getVolunteers() {
+                return this.adminData ? this.adminData.volunteers : [];
+            },
+            
+            // Setup listener for storage changes (from admin dashboard)
+            setupStorageListener() {
+                window.addEventListener('storage', (e) => {
+                    if (e.key === 'dashboardData' || e.key === 'gallery_images' || e.key === 'recent_donations') {
+                        console.log('Admin data updated:', e.key);
+                        this.loadAdminData();
+                        this.updateDataStatus('syncing', 'Admin data updated');
+                        setTimeout(() => {
+                            this.updateDataStatus('connected', 'Data synchronized');
+                        }, 1500);
+                    }
+                });
+                
+                // Also listen for custom events from admin
+                window.addEventListener('admin-data-updated', () => {
+                    this.refreshData();
+                });
+            },
+            
+            // Setup auto-sync
+            setupAutoSync() {
+                // Check for updates every 10 seconds
+                this.syncInterval = setInterval(() => {
+                    this.checkForUpdates();
+                }, 10000);
+            },
+            
+            // Check for updates
+            checkForUpdates() {
+                // In a real implementation, this would check with server
+                // For now, just reload from localStorage
+                const oldTimestamp = this.lastUpdate;
+                this.loadAdminData();
+                
+                if (this.lastUpdate !== oldTimestamp) {
+                    this.updateDataStatus('connected', 'Data updated automatically');
+                    this.dispatchDataEvent('data-updated');
+                }
+            },
+            
+            // Force refresh data
+            refreshData() {
+                this.updateDataStatus('syncing', 'Refreshing data from admin...');
+                setTimeout(() => {
+                    this.loadAdminData();
+                    this.updateDataStatus('connected', 'Data refreshed successfully');
+                    this.dispatchDataEvent('data-refreshed');
+                }, 1000);
+            },
+            
+            // Update data status display
+            updateDataStatus(status, message) {
+                const statusEl = document.getElementById('dataStatus');
+                const statusText = document.getElementById('dataStatusText');
+                const icon = statusEl.querySelector('i');
+                
+                if (!statusEl) return;
+                
+                // Update classes
+                statusEl.className = 'data-status';
+                switch(status) {
+                    case 'connected':
+                        statusEl.classList.add('connected');
+                        icon.className = 'fas fa-check-circle';
+                        break;
+                    case 'syncing':
+                        statusEl.classList.add('syncing');
+                        icon.className = 'fas fa-sync fa-spin';
+                        break;
+                    case 'error':
+                        statusEl.classList.add('error');
+                        icon.className = 'fas fa-exclamation-circle';
+                        break;
+                    default:
+                        icon.className = 'fas fa-circle';
+                }
+                
+                // Update text
+                statusText.textContent = message;
+                statusEl.style.display = 'flex';
+                
+                // Update last sync time
+                if (status === 'connected' && this.lastUpdate) {
+                    document.getElementById('lastSyncTime').textContent = 
+                        this.lastUpdate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                }
+                
+                // Auto-hide after 3 seconds (except for errors)
+                if (status !== 'error') {
+                    setTimeout(() => {
+                        statusEl.style.display = 'none';
+                    }, 3000);
+                }
+            },
+            
+            // Dispatch data event
+            dispatchDataEvent(type) {
+                const event = new CustomEvent('uafl-data-event', {
+                    detail: { 
+                        type, 
+                        data: this.adminData,
+                        timestamp: this.lastUpdate 
+                    }
+                });
+                window.dispatchEvent(event);
+            },
+            
+            // Subscribe to data events
+            subscribe(callback) {
+                window.addEventListener('uafl-data-event', (e) => {
+                    callback(e.detail);
+                });
+            }
+        };
+
+        // ===== WEBSITE DATA DISPLAY FUNCTIONS =====
+        
+        // Update all website data from admin
+        function updateWebsiteData() {
+            const connector = window.UAFDataConnector;
+            if (!connector || !connector.adminData) return;
+            
+            const stats = connector.getStats();
+            const donations = connector.getDonations();
+            const gallery = connector.getGallery();
+            
+            // Update live stats
+            updateLiveStats(stats);
+            
+            // Update main stats
+            updateMainStats(stats);
+            
+            // Update recent donations
+            updateRecentDonations(donations);
+            
+            // Update gallery
+            updateGallery(gallery);
+        }
+        
+        // Update live stats bar
+        function updateLiveStats(stats) {
+            if (!stats) return;
+            
+            if (stats.totalDonations) {
+                document.getElementById('liveTotalDonations').textContent = 
+                    '$' + stats.totalDonations.toLocaleString();
+                document.getElementById('liveDonationsUpdate').textContent = 'Updated just now';
+            }
+            
+            if (stats.activeVolunteers) {
+                document.getElementById('liveActiveVolunteers').textContent = stats.activeVolunteers;
+                document.getElementById('liveVolunteersUpdate').textContent = 'Live from admin';
+            }
+            
+            if (stats.ongoingProjects) {
+                document.getElementById('liveOngoingProjects').textContent = stats.ongoingProjects;
+                document.getElementById('liveProjectsUpdate').textContent = 'Active now';
+            }
+            
+            if (stats.newSupporters) {
+                document.getElementById('liveNewSupporters').textContent = stats.newSupporters;
+                document.getElementById('liveSupportersUpdate').textContent = 'This month';
+            }
+        }
+        
+        // Update main stats cards
+        function updateMainStats(stats) {
+            if (!stats) return;
+            
+            // Calculate derived stats (these would come from admin in real implementation)
+            const derivedStats = {
+                projects: stats.ongoingProjects + 243, // Example calculation
+                lives: Math.floor(stats.totalDonations * 4), // Example: $1 helps 4 lives
+                volunteers: stats.activeVolunteers,
+                communities: Math.floor(stats.activeVolunteers / 6.4) // Example calculation
+            };
+            
+            // Animate counters
+            animateCounter('projectsCompleted', derivedStats.projects);
+            animateCounter('livesImpacted', derivedStats.lives);
+            animateCounter('activeVolunteers', derivedStats.volunteers);
+            animateCounter('communitiesServed', derivedStats.communities);
+            
+            // Update source timestamps
+            const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            document.getElementById('projectsSource').textContent = `Updated at ${now}`;
+            document.getElementById('livesSource').textContent = `Updated at ${now}`;
+            document.getElementById('volunteersSource').textContent = `Live from admin`;
+            document.getElementById('communitiesSource').textContent = `Updated at ${now}`;
+        }
+        
+        // Update recent donations
+        function updateRecentDonations(donations) {
+            const container = document.getElementById('recentDonations');
+            if (!container) return;
+            
+            // Take only 4 most recent completed donations
+            const recent = donations
+                .filter(d => d.status === 'completed')
+                .slice(0, 4);
+            
+            if (recent.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; grid-column: 1 / -1;">
+                        <p style="color: var(--gray);">No recent donations to display yet.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = recent.map(donation => `
+                <div class="donation-card">
+                    <div class="donor-name">${donation.donor || 'Anonymous Donor'}</div>
+                    <div class="donation-amount">$${donation.amount ? donation.amount.toLocaleString() : '0'}</div>
+                    <div class="donation-date">${formatDate(donation.date)}</div>
+                    <div style="margin-top: 8px; font-size: 0.8rem; color: var(--gray);">
+                        <i class="fas fa-${donation.method === 'card' ? 'credit-card' : donation.method === 'paypal' ? 'paypal' : 'university'}"></i>
+                        ${donation.type === 'monthly' ? 'Monthly' : 'One-time'}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Update gallery
+        function updateGallery(gallery) {
+            const container = document.getElementById('dynamicGallery');
+            if (!container) return;
+            
+            if (!gallery || gallery.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; grid-column: 1 / -1;">
+                        <p style="color: var(--gray);">Gallery images coming soon from admin.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = gallery.map(item => `
+                <div class="gallery-figure" data-category="${item.category || 'general'}">
+                    <img src="${item.image}" alt="${item.title}" class="gallery-img" 
+                         onerror="this.src='https://images.unsplash.com/photo-1621506289937-a8e4df480b39?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'">
+                    <div class="gallery-caption">
+                        <h3>${item.title}</h3>
+                        <p>${item.description}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        // Format date
+        function formatDate(dateString) {
+            if (!dateString) return 'Recently';
+            
+            const date = new Date(dateString);
+            if (isNaN(date)) return dateString;
+            
+            const now = new Date();
+            const diffTime = Math.abs(now - date);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            
+            if (diffDays === 0) return 'Today';
+            if (diffDays === 1) return 'Yesterday';
+            if (diffDays < 7) return `${diffDays} days ago`;
+            
+            return date.toLocaleDateString([], { month: 'short', day: 'numeric' });
+        }
+        
+        // ===== ANIMATION FUNCTIONS =====
+        
+        // Animated counter
+        function animateCounter(elementId, target) {
+            const element = document.getElementById(elementId);
+            if (!element) return;
+            
+            const currentText = element.textContent;
+            const current = parseInt(currentText.replace(/[^0-9]/g, '')) || 0;
+            
+            // If already at target or very close, skip animation
+            if (Math.abs(current - target) < 2) {
+                element.textContent = formatNumber(target) + '+';
+                return;
+            }
+            
+            const duration = 1500;
+            const increment = target / (duration / 16);
+            let currentCount = current;
+            
+            const timer = setInterval(() => {
+                currentCount += increment;
+                const displayCount = Math.floor(currentCount);
+                
+                element.textContent = formatNumber(displayCount) + '+';
+                
+                if (currentCount >= target) {
+                    element.textContent = formatNumber(target) + '+';
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+        
+        // Format large numbers
+        function formatNumber(num) {
+            if (num >= 1000000) {
+                return (num / 1000000).toFixed(1) + 'M';
+            } else if (num >= 1000) {
+                return (num / 1000).toFixed(1) + 'K';
+            }
+            return num.toLocaleString();
+        }
+        
+        // ===== EVENT HANDLERS =====
+        
+        // Typing effect
+        function initTypingEffect() {
+            const typingElement = document.getElementById('typingText');
+            const cursor = document.getElementById('typingCursor');
+            const text = "Welcome to United Against Floods, where we strive to make a difference in the lives of those affected by natural disasters.";
+            let index = 0;
+
+            function typeWriter() {
+                if (index < text.length) {
+                    typingElement.textContent += text.charAt(index);
+                    index++;
+                    setTimeout(typeWriter, 40);
+                } else {
+                    cursor.style.display = 'none';
+                    revealTexts();
+                }
+            }
+
+            function revealTexts() {
+                const fadeTexts = document.querySelectorAll('.fade-text');
+                fadeTexts.forEach((p, i) => {
+                    setTimeout(() => {
+                        p.classList.add('fade-in');
+                    }, i * 800);
+                });
+            }
+
+            typeWriter();
+        }
+        
+        // Header scroll effect
+        function initScrollEffect() {
+            window.addEventListener('scroll', function() {
+                const header = document.querySelector('.header-bar');
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+        }
+        
+        // Newsletter subscription
+        function subscribeNewsletter(event) {
+            event.preventDefault();
+            const email = document.getElementById('newsletterEmail').value;
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            
+            // Save to localStorage
+            let subscribers = JSON.parse(localStorage.getItem('uafl_newsletter')) || [];
+            subscribers.push({
+                email: email,
+                date: new Date().toISOString(),
+                source: 'website'
+            });
+            localStorage.setItem('uafl_newsletter', JSON.stringify(subscribers));
+            
+            // Show success
+            alert('Thank you for subscribing to our newsletter!');
+            document.getElementById('newsletterEmail').value = '';
+            
+            // Update admin data if connected
+            if (window.UAFDataConnector) {
+                // This would sync with admin in real implementation
+                console.log('Newsletter subscriber added:', email);
+            }
+        }
+        
+        // Mobile menu
+        function initMobileMenu() {
+            const toggle = document.getElementById('toggle');
+            if (!toggle) return;
+            
+            toggle.addEventListener('change', function() {
+                document.body.style.overflow = this.checked ? 'hidden' : 'auto';
+            });
+            
+            // Close menu on link click
+            document.querySelectorAll('.Navbar a').forEach(link => {
+                link.addEventListener('click', () => {
+                    document.getElementById('toggle').checked = false;
+                    document.body.style.overflow = 'auto';
+                });
+            });
+        }
+        
+        // Smooth scrolling
+        function initSmoothScrolling() {
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    const targetId = this.getAttribute('href');
+                    if(targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement) {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 80,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        }
+        
+        // Force refresh button
+        function initRefreshButton() {
+            const refreshBtn = document.getElementById('refreshDataBtn');
+            if (refreshBtn) {
+                refreshBtn.addEventListener('click', () => {
+                    if (window.UAFDataConnector) {
+                        window.UAFDataConnector.refreshData();
+                        updateWebsiteData();
+                    }
+                });
+            }
+        }
+        
+        // ===== INITIALIZATION =====
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start typing effect
+            initTypingEffect();
+            
+            // Initialize UI effects
+            initScrollEffect();
+            initMobileMenu();
+            initSmoothScrolling();
+            initRefreshButton();
+            
+            // Initialize data connector
+            setTimeout(() => {
+                window.UAFDataConnector = UAFDataConnector.init();
+                
+                // Subscribe to data updates
+                window.UAFDataConnector.subscribe((detail) => {
+                    console.log('Data event:', detail.type);
+                    updateWebsiteData();
+                });
+                
+                // Initial data update
+                updateWebsiteData();
+                
+                // Show welcome message
+                setTimeout(() => {
+                    window.UAFDataConnector.updateDataStatus('connected', 'Connected to admin dashboard');
+                }, 2000);
+                
+            }, 1000);
+            
+            // Check if admin is logged in (for demo purposes)
+            setTimeout(() => {
+                const isAdminLoggedIn = localStorage.getItem('demoLoggedIn') === 'true';
+                if (isAdminLoggedIn) {
+                    console.log('Admin dashboard is currently logged in');
+                }
+            }, 3000);
+            
+            // Periodic data check
+            setInterval(() => {
+                if (window.UAFDataConnector) {
+                    window.UAFDataConnector.checkForUpdates();
+                }
+            }, 30000); // Every 30 seconds
+        });
+        
+        // Handle offline/online status
+        window.addEventListener('online', () => {
+            if (window.UAFDataConnector) {
+                window.UAFDataConnector.updateDataStatus('connected', 'Back online - syncing data');
+                window.UAFDataConnector.checkForUpdates();
+            }
+        });
+        
+        window.addEventListener('offline', () => {
+            if (window.UAFDataConnector) {
+                window.UAFDataConnector.updateDataStatus('error', 'Offline - using cached data');
+            }
+            // ===== ADMIN TO WEBSITE SYNC FUNCTIONS =====
+
+// Save admin data to shared storage (website can read this)
+function saveAdminDataToWebsite() {
+    try {
+        // Save main dashboard data
+        localStorage.setItem('dashboardData', JSON.stringify(dashboardData));
+        
+        // Save gallery data
+        const galleryData = [
+            {
+                image: 'images/BABY.jpg',
+                title: 'Innocent Baby',
+                description: 'Protected and cared for after devastating floods',
+                category: 'children'
+            },
+            {
+                image: 'images/WOMAN.jpg',
+                title: 'Confident Woman',
+                description: 'Rebuilding her life with strength and resilience',
+                category: 'women'
+            },
+            {
+                image: 'images/by.jpg',
+                title: 'Young Boy',
+                description: 'Finding hope and joy amidst challenges',
+                category: 'children'
+            },
+            {
+                image: 'images/mother.jpg',
+                title: 'Loving Mother',
+                description: 'Protecting her family with unwavering love',
+                category: 'women'
+            },
+            {
+                image: 'images/FIELD.jpg',
+                title: 'Peaceful Field',
+                description: 'Restoring agricultural land for community sustainability',
+                category: 'community'
+            },
+            {
+                image: 'images/pat.jpg',
+                title: 'Community Partner',
+                description: 'Working together for flood resilience',
+                category: 'community'
+            }
+        ];
+        localStorage.setItem('gallery_images', JSON.stringify(galleryData));
+        
+        // Save recent donations
+        const recentDonations = dashboardData.donations.slice(0, 10);
+        localStorage.setItem('recent_donations', JSON.stringify(recentDonations));
+        
+        // Dispatch custom event
+        const event = new CustomEvent('admin-data-updated');
+        window.dispatchEvent(event);
+        
+        showToast('Data synchronized with website!', 'success');
+        return true;
+    } catch (error) {
+        console.error('Error saving admin data:', error);
+        showToast('Error syncing data', 'error');
+        return false;
+    }
+}
+
+// Auto-save when data changes
+function setupAutoSave() {
+    // Save when donations change
+    const originalDonations = dashboardData.donations;
+    dashboardData.donations = new Proxy(originalDonations, {
+        set: function(target, property, value) {
+            target[property] = value;
+            setTimeout(saveAdminDataToWebsite, 500);
+            return true;
+        }
+    });
+    
+    // Save when stats change
+    const originalStats = dashboardData.stats;
+    dashboardData.stats = new Proxy(originalStats, {
+        set: function(target, property, value) {
+            target[property] = value;
+            setTimeout(saveAdminDataToWebsite, 500);
+            return true;
+        }
+    });
+}
+
+// Add sync button to admin header
+function addSyncButtonToAdmin() {
+    const headerActions = document.querySelector('.header-actions');
+    if (headerActions && !document.getElementById('adminSyncBtn')) {
+        const syncBtn = document.createElement('button');
+        syncBtn.id = 'adminSyncBtn';
+        syncBtn.className = 'btn-secondary';
+        syncBtn.innerHTML = '<i class="material-icons">sync</i> Sync with Website';
+        syncBtn.onclick = saveAdminDataToWebsite;
+        syncBtn.style.marginLeft = '10px';
+        headerActions.appendChild(syncBtn);
+    }
+}
+
+// Initialize on admin dashboard load
+document.addEventListener('DOMContentLoaded', function() {
+    // Initial save
+    setTimeout(saveAdminDataToWebsite, 1000);
+    
+    // Setup auto-save
+    setTimeout(setupAutoSave, 2000);
+    
+    // Add sync button
+    setTimeout(addSyncButtonToAdmin, 1500);
+    
+    // Auto-save periodically
+    setInterval(saveAdminDataToWebsite, 60000); // Every minute
+});
+        });
+    </script>
+</body>
+</html>
